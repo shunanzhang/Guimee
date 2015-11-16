@@ -7,22 +7,45 @@
 //
 
 import UIKit
+import AFNetworking
 
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let itemNames = ["dress 1", "dress 2", "dress 3", "dress 4", "dress 5", "dress 6"]
+    var itemNames: [String]!
+    
+    var items: [NSDictionary]!
+    
+    @IBOutlet weak var searchField: UITextField!
+    
     
     let imageArray = [UIImage(named: "Dress1_"), UIImage(named: "Dress2_"), UIImage(named: "Dress3_"), UIImage(named: "Dress4_"), UIImage(named: "Dress5_"), UIImage(named: "Dress6_")]
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //itemNames = ["dress 1", "dress 2", "dress 3", "dress 4", "dress 5", "dress 6"]
+        
+        items = []
+        
         collectionView.delegate = self
         collectionView.dataSource = self
-
-        // Do any additional setup after loading the view.
+        
+        let url = NSURL(string: "http://api.walmartlabs.com/v1/search?apiKey=ta8supx3ehdmwws2wq94vthd&query=dress")!
+        
+        let request = NSURLRequest(URL: url)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) { (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            
+            let json = try! NSJSONSerialization.JSONObjectWithData(data!, options: [])
+            
+            self.items = json["items"] as! [NSDictionary]
+            
+            self.collectionView.reloadData()
+            
+            //print(json)
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,16 +54,28 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.itemNames.count
+        return self.items.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ItemCell", forIndexPath: indexPath) as! ItemCell
         
-        cell.titleLabel?.text = self.itemNames[indexPath.row]
+        let item = items[indexPath.row]
         
-        cell.imageView?.image = self.imageArray[indexPath.row]
+        let title = item["name"] as! String
+        
+        let itemImageURLString = item.valueForKeyPath("thumbnailImage") as! String
+     
+        print(itemImageURLString)
+        
+        cell.titleLabel.text = title
+        
+        cell.imageView.setImageWithURL(NSURL(string:itemImageURLString)!)
+        
+        //cell.imageView?.image = self.imageArray[indexPath.row]
+        
+        print("row: \(indexPath.row)")
         
         return cell
     }
@@ -58,8 +93,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             let vc = segue.destinationViewController as! ItemDetailViewController
             
-            vc.itemImage = self.imageArray[indexPath.row]!
-            vc.title = self.itemNames[indexPath.row]
+            //vc.itemImage = self.imageArray[indexPath.row]!
+            //vc.title = self.itemNames[indexPath.row]
             
             
         }

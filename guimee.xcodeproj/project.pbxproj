@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DA3FD8E6038B600F6498F1B /* Pods_guimee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76654E62D7580178F0870EA5 /* Pods_guimee.framework */; };
 		DEDBB1B25E6433FA8D1D9288 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4012AB6D0BE6F34F941ABD0 /* Pods.framework */; };
 		F9BB61EB1BF4F7C1000D3943 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BB61EA1BF4F7C1000D3943 /* AppDelegate.swift */; };
 		F9BB61ED1BF4F7C1000D3943 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BB61EC1BF4F7C1000D3943 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76654E62D7580178F0870EA5 /* Pods_guimee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_guimee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EFE7FABE6FF4474CC3101F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D085D33589E33D32AE8AF8D3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F4012AB6D0BE6F34F941ABD0 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 				F9BB621B1BF4F7E6000D3943 /* Parse.framework in Frameworks */,
 				F9BB62191BF4F7CF000D3943 /* Bolts.framework in Frameworks */,
 				DEDBB1B25E6433FA8D1D9288 /* Pods.framework in Frameworks */,
+				5DA3FD8E6038B600F6498F1B /* Pods_guimee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				F4012AB6D0BE6F34F941ABD0 /* Pods.framework */,
+				76654E62D7580178F0870EA5 /* Pods_guimee.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -362,7 +366,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-guimee/Pods-guimee-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E4E5D4DE43F7611C1CA9D548 /* Copy Pods Resources */ = {

@@ -9,7 +9,7 @@
 import Parse
 import Bolts
 import UIKit
-import HTMLReader
+//import HTMLReader
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var homeScrollView: UIScrollView!
