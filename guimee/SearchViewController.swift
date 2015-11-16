@@ -44,7 +44,26 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         return cell
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showDetailSegue", sender: self)
+    }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetailSegue" {
+            
+            let indexPaths = self.collectionView!.indexPathsForSelectedItems()!
+            
+            let indexPath = indexPaths[0] as NSIndexPath
+            
+            let vc = segue.destinationViewController as! ItemDetailViewController
+            
+            vc.itemImage = self.imageArray[indexPath.row]!
+            vc.title = self.itemNames[indexPath.row]
+            
+            
+        }
+    }
     /*
     // MARK: - Navigation
 

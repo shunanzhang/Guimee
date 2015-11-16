@@ -17,7 +17,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <segue destination="4vR-rV-Hew" kind="modal" identifier="loginSegue" id="TLA-CG-OWi"/>
+                                    <segue destination="4vR-rV-Hew" kind="modal" identifier="loginSegue" animates="NO" id="TLA-CG-OWi"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="AAg-xG-xN6">
@@ -248,7 +248,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oxN-i6-lVQ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oxN-i6-lVQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -275,6 +275,7 @@
                     <navigationItem key="navigationItem" id="cyz-Xi-r8b"/>
                     <connections>
                         <outlet property="collectionView" destination="jm0-MU-JlR" id="rip-DQ-Rea"/>
+                        <segue destination="ziE-H3-vs6" kind="push" identifier="showDetailSegue" animates="NO" id="eYw-Zz-W4x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ufg-Nf-pL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -286,19 +287,27 @@
             <objects>
                 <viewController id="ziE-H3-vs6" customClass="ItemDetailViewController" customModule="guimee" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cSM-vC-bzP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="9Xl-x4-big">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" item title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fht-KT-hYR">
+                                <rect key="frame" x="0.0" y="218" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="bxb-TX-pkK"/>
                     <connections>
                         <outlet property="imageView" destination="9Xl-x4-big" id="t6e-Jg-zdd"/>
+                        <outlet property="titleLabel" destination="Fht-KT-hYR" id="7XM-N5-Qdf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGU-k8-9kn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,7 +339,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="297" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <segue destination="Wbh-0d-SEX" kind="push" id="UUb-o8-KdM"/>
+                                            <segue destination="Wbh-0d-SEX" kind="push" animates="NO" id="UUb-o8-KdM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -524,6 +533,14 @@
                                 <rect key="frame" x="29" y="58" width="135" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qWz-ay-J2O">
+                                <rect key="frame" x="274" y="538" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="vYT-sk-Dly" kind="modal" id="OQG-qA-LNR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
